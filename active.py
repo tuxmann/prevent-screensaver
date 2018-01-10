@@ -2,6 +2,7 @@ import os
 import time
 import pyautogui
 
+pyautogui.FAILSAFE = False				# Prevents the script from stopping when the PC is locked.
 idle = False
 
 ###			Functions			###
