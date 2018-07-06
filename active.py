@@ -1,6 +1,6 @@
 import os, pyautogui, time
 
-pyautogui.FAILSAFE = False				# Prevents the script from stopping when the PC is locked.
+pyautogui.FAILSAFE = False		# Prevents script abort.
 idle = False
 date = time.asctime( time.localtime(time.time()) )[:3]
 
@@ -24,15 +24,17 @@ def user_is_idle():
 
 def post_time():
 	global idle_start, date
+	#print ("post_time", idle)
 	localtime = time.asctime( time.localtime(time.time()) ) #Get the time
-	if date != localtime[:3]:	# Print date if changed.
-		print ('\n'+date)
+	if date != localtime[:3]:
 		date = localtime[:3]
+		print ('\n'+date)
 	if idle == True:
 		idle_start = time.asctime( time.localtime(time.time()) )[11:-8]
 	if idle == False:
 		idle_stop =  time.asctime( time.localtime(time.time()) )[11:-8]
 		print ("User idle at " + idle_start + "    User back at " +  idle_stop)		# Not Idle
+		#print ()
 
 
 ###			Main Program		###
